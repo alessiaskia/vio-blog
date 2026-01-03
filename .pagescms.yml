@@ -1,0 +1,26 @@
+collections:
+  - name: actu
+    label: Actualités
+    folder: src/content/actu
+    create: true
+    extension: md
+    fields:
+      - name: title
+        label: Title
+        type: text
+
+      - name: pubDate
+        label: Publication date
+        type: date
+
+      - name: description
+        label: Description
+        type: textarea
+
+      - name: body
+        label: Content
+        type: rich-text
+
+      - name: image
+        label: Featured Image
+        type: image
