@@ -2,40 +2,11 @@
 layout: ../layouts/AboutLayout.astro
 title: About
 ---
-AstroPaper is a minimal, responsive and SEO-friendly Astro blog theme. I designed and crafted this based on [my personal blog](https://satnaing.dev/blog).
+Je suis sexologue et j’accompagne les adultes et les couples dans leurs questionnements liés à la sexualité, à l’intimité et aux relations.
 
-This theme is aimed to be accessible out of the box. Light and dark mode are supported by default and additional color schemes can also be configured.
+Je propose un espace d’écoute bienveillant, inclusif et sans jugement, adapté aux réalités de chacun·e.  
+Mon approche est intégrative et attentive aux diversités relationnelles, affectives et sexuelles, notamment LGBTQIA+, relations plurielles et pratiques BDSM.
 
-This theme is self-documented \_ which means articles/posts in this theme can also be considered as documentations. So, see the documentation for more info.
+Les consultations ont lieu en présentiel ou en ligne.
 
-![](/assets/vio-portrait.jpg)
-
-## Tech Stack
-
-This theme is written in vanilla JavaScript (+ TypeScript for type checking) and a little bit of ReactJS for some interactions. TailwindCSS is used for styling; and Markdown is used for blog contents.
-
-## Features
-
-Here are certain features of this site.
-
-*   fully responsive and accessible
-    
-*   SEO-friendly
-    
-*   light & dark mode
-    
-*   fuzzy search
-    
-*   super fast performance
-    
-*   draft posts
-    
-*   pagination
-    
-*   sitemap & rss feed
-    
-*   highly customizable
-    
-
-If you like this theme, you can star/contribute to the [repo](https://github.com/satnaing/astro-paper).  
-Or you can even give any feedback via my [email](mailto:contact@satnaing.dev).
+![portrait de la professionnelle](/assets/vio-portrait.jpg)
