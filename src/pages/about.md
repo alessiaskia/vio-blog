@@ -1,6 +1,6 @@
 ---
 layout: ../layouts/AboutLayout.astro
-title: About
+title: À propos de moi
 ---
 Je suis sexologue et j’accompagne les adultes et les couples dans leurs questionnements liés à la sexualité, à l’intimité et aux relations.
 
