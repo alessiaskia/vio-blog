@@ -23,89 +23,110 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="about">
-      <h2>À propos de moi</h2>
+      <h2>Qui suis-je?</h2>
+      <p>Salut ! Moi c'est Vio Fertinel.</p>
       <p>
-        Je suis sexologue et j’accompagne les adultes et les couples dans leurs
-        questionnements liés à la sexualité, à l’intimité et aux relations.<p>
-        </p>
-        <p>
-          Je propose un espace d’écoute bienveillant, inclusif et sans jugement,
-          adapté aux réalités de chacun·e.<br />
-          Mon approche est intégrative et attentive aux diversités relationnelles,
-          affectives et sexuelles, notamment LGBTQIA+, relations plurielles et pratiques
-          BDSM.
-        </p>
-
-        <p>Les consultations ont lieu en présentiel ou en ligne.</p>
-        <img
-          width="500"
-          alt="portrait de la professionnelle"
-          src="../../public/assets/vio-portrait.jpg"
-        />
+        Après avoir travaillé 10 ans comme assistante sociale, j'ai choisi de me
+        réorienter vers le métier de sexologue, pour lequel j'ai repris une
+        formation de 2 ans à l'Université Libre de Bruxelles. Je suis membre de
+        la SSUB.
       </p>
-
-      <Hr />
-      <section id="tarifs">
-        <h2>Tarifs</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos
-          dignissimos impedit neque sapiente eius dolore eum doloribus mollitia
-          repellendus excepturi facere nemo nulla quidem, expedita a minima
-          asperiores quo.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eos
-          dignissimos impedit neque sapiente eius dolore eum doloribus mollitia
-          repellendus excepturi facere nemo nulla quidem, expedita a minima
-          asperiores quo.
-        </p>
-      </section>
-
-      <Hr />
-      <section id="contact">
-        <h2>Contact</h2>
+      <p>
+        Mon approche se veut intégrative, c'est-à-dire qu'elle se base sur
+        différents courants en sexologie et que le·a patient·e est partenaire
+        dans la sexothérapie.
+      </p>
+      <p>
+        La consultation est ouverte à toute personne (adolescent·es et adultes)
+        qui s'interroge sur la-sa sexualité, que cela soit en entretien
+        individuel ou de couple(s).
+      </p>
+      <p>
+        Parce que se former de façon continue est une nécessité, voici un
+        echantillon de ce que j'ai ajouté à mes connaissances :
         <ul>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
           <li>
-            Harum eos dignissimos impedit neque sapiente eius dolore eum
-            doloribus mollitia repellendus excepturi facere nemo nulla quidem
+            formation sur les Transidentités l'an dernier (je fais partie du
+            réseau)
           </li>
-          <li>expedita a minima asperiores quo.</li>
+          <li>formation EVRAS</li>
+          <li>formation en EFT (en cours)</li>
+          <li>formation sur les relations alternatives (à venir)</li>
+          <li>
+            formation sur les traumas (à venir), formation sur la prise en
+            charge thérapeutique des personnes LGBTQIA+ (à venir).
+          </li>
         </ul>
-      </section>
-      <Hr />
-
-      {
-        recentPosts.length > 0 && (
-          <section id="recent-posts">
-            <h2>Dernières actus</h2>
-            <ul>
-              {recentPosts.map(
-                ({ data, slug }, index) =>
-                  index < 4 && (
-                    <Card
-                      href={`/posts/${slug}/`}
-                      frontmatter={data}
-                      secHeading={false}
-                    />
-                  )
-              )}
-            </ul>
-          </section>
-        )
-      }
-
-      <div class="all-posts-btn-wrapper">
-        <LinkButton href="/posts/">
-          All Posts
-          <svg xmlns="http://www.w3.org/2000/svg"
-            ><path
-              d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
-            ></path>
-          </svg>
-        </LinkButton>
-      </div>
+      </p>
+      <img
+        width="500"
+        alt="portrait de la professionnelle"
+        src="src/assets/images/vio-portrait.jpg"
+      />
     </section>
+
+    <Hr />
+    <section id="tarifs">
+      <h2>Tarifs</h2>
+      <p>
+        Le tarif pour une consultation individuelle est de 60€ pour 45 min (1h
+        pour un 1er rdv) et à partir de 80€ pour les couples pour 1h (1h15 le
+        1er rdv).
+      </p>
+    </section>
+
+    <Hr />
+    <section id="consultations">
+      <h2>Consultations</h2>
+      <p>Le jeudi de 13h à 20h 94 square Eugène Plasky à Schaerbeek.</p>
+      <p>Le mardi de 11h à 19h 17 rue de l'hôpital à Bruxelles.</p>
+    </section>
+
+    <Hr />
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+        <li>
+          Harum eos dignissimos impedit neque sapiente eius dolore eum doloribus
+          mollitia repellendus excepturi facere nemo nulla quidem
+        </li>
+        <li>expedita a minima asperiores quo.</li>
+      </ul>
+    </section>
+
+    <Hr />
+
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts">
+          <h2>Dernières actus</h2>
+          <ul>
+            {recentPosts.map(
+              ({ data, slug }, index) =>
+                index < 4 && (
+                  <Card
+                    href={`/posts/${slug}/`}
+                    frontmatter={data}
+                    secHeading={false}
+                  />
+                )
+            )}
+          </ul>
+        </section>
+      )
+    }
+
+    <div class="all-posts-btn-wrapper">
+      <LinkButton href="/posts/">
+        All Posts
+        <svg xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
+          ></path>
+        </svg>
+      </LinkButton>
+    </div>
 
     <Footer />
   </main>
