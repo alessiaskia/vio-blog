@@ -23,6 +23,12 @@ html[data-theme="dark"] {
 /* ==========================
    Global Styles
    ========================== */
+:root {
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+}
 
 body {
   display: flex;
@@ -35,7 +41,7 @@ body {
   font-family: "Lora", serif;
   line-height: 1.7;
   /* watercolor texture overlay */
-  /* background-image: url('https://img.freepik.com/free-vector/colourful-watercolour-texture_1048-11773.jpg'); */
+  /* background-image: url('  '); */
   background-image: url('/../../public/assets/watercolor-2.avif');
   background-image: url('/../../public/assets/watercolor-1.avif');
   background-size: cover;
@@ -43,7 +49,6 @@ body {
   background-position: center;
   /* blend with background color for theme adaptability */
   background-blend-mode: multiply;
-  filter: brightness(1.1) contrast(1.05) saturate(1.2) hue-rotate(-10deg);
 }
 
 body::before {
@@ -51,25 +56,29 @@ body::before {
   position: fixed;
   inset: 0;
   background-color: var(--background);
-  opacity: 0.7; /* adjust to lighten/darken texture */
-  pointer-events: none; /* won’t block clicks */
+  opacity: 0.7;
+  /* adjust to lighten/darken texture */
+  pointer-events: none;
+  /* won’t block clicks */
   z-index: -1;
 }
 
-main, section {
+main,
+section {
   max-width: 900px;
   margin: 0 auto;
-  padding: 1.5rem 1rem; /* smaller horizontal padding */
+  padding: var(--space-4) var(--space-2);
 }
 
 p {
-  margin-bottom: 1.25rem;
+  margin-bottom: var(--space-3);
 }
 
 /* Links */
 a {
-  color: var(--accent);
+  color: var(--foreground);
   text-decoration: underline;
+  transition: opacity .2s ease, color .2s ease;
 }
 
 a:hover {
@@ -92,29 +101,48 @@ td {
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--foreground);
   font-family: "Playfair Display", serif;
+  text-wrap: balance;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; font-style: italic;}
+h1 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+}
 
 /* Images centered */
 img {
   display: block;
   margin: 1rem auto;
   max-width: 100%;
-  border-radius: 8px; /* soft corners */
+  border-radius: 8px;
+  /* soft corners */
+  filter: brightness(1.1) contrast(1.05) saturate(1.2) hue-rotate(-10deg);
 }
 
 /* Lists */
-ul, ol {
-  margin: 0 0 1.25rem 1.5rem; /* indent + bottom spacing */
+ul,
+ol {
+  display: grid;
+  gap: .75rem;
 }
 
-ul li::marker, ol li::marker {
+ul li::marker,
+ol li::marker {
   color: var(--accent);
   font-weight: 600;
 }
@@ -137,59 +165,66 @@ button:hover,
 /* ==========================
   Text + Image Layout
   ========================== */
+.text-image-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 3rem;
+  /* space between text and image */
+  margin: 2rem auto;
+  /* vertical margin + horizontal centering */
+  flex-wrap: wrap;
+  max-width: 900px;
+  /* restrict total width to keep it centered */
+  padding: 0 1rem;
+  /* add some horizontal breathing room */
+}
+
+.text-image-section .text-content {
+  flex: 1;
+  /* takes remaining space */
+  min-width: 250px;
+}
+
+.text-image-section .image-content {
+  flex: 0 0 300px;
+  /* fixed width for image */
+  text-align: right;
+  /* push image to right */
+}
+
+.text-image-section .image-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  display: inline-block;
+  margin: 0;
+  align-self: flex-start;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 768px) {
   .text-image-section {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 3rem;                 /* space between text and image */
-    margin: 2rem auto;          /* vertical margin + horizontal centering */
-    flex-wrap: wrap;
-    max-width: 900px;           /* restrict total width to keep it centered */
-    padding: 0 1rem;            /* add some horizontal breathing room */
-  }
-  
-  .text-image-section .text-content {
-    flex: 1;                    /* takes remaining space */
-    min-width: 250px;
-  }
-  
-  .text-image-section .image-content {
-    flex: 0 0 300px;            /* fixed width for image */
-    text-align: right;           /* push image to right */
-  }
-  
-  .text-image-section .image-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-    display: inline-block;
-    margin: 0;
-    align-self: flex-start;
-  }
-  
-  /* Mobile: stack vertically */
-  @media (max-width: 768px) {
-    .text-image-section {
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-  
-    .text-image-section .image-content {
-      text-align: center;
-      flex: 1 1 100%;
-      order: 0;
-    }
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
-  /* SR */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+  .text-image-section .image-content {
+    text-align: center;
+    flex: 1 1 100%;
+    order: 0;
   }
+}
+
+/* SR */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
