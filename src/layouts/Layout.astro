@@ -1,6 +1,6 @@
 ---
 import { LOCALE, SITE } from "@config";
-import "@styles/base.css";
+import "../styles/base.css";
 import { ViewTransitions } from "astro:transitions";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -35,7 +35,7 @@ const socialImageURL = new URL(
 
 <!doctype html>
 <html
-  lang=`${LOCALE.lang ?? "en"}`
+  lang=`${LOCALE.lang ?? "fr"}`
   class={`${scrollSmooth && "scroll-smooth"}`}
 >
   <head>
@@ -87,10 +87,9 @@ const socialImageURL = new URL(
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
     <meta name="theme-color" content="" />
 
     {
@@ -111,5 +110,29 @@ const socialImageURL = new URL(
   </head>
   <body>
     <slot />
+    <!-- <script>
+      const themeBtn = document.getElementById("theme-btn");
+      const html = document.documentElement;
+
+      // Toggle theme
+      themeBtn?.addEventListener("click", () => {
+        const isDark = html.getAttribute("data-theme") === "dark";
+        html.setAttribute("data-theme", isDark ? "light" : "dark");
+      });
+
+      // Hamburger menu
+      const menuBtn = document.querySelector(".hamburger-menu");
+      const menuItems = document.querySelector("nav ul");
+      menuBtn?.addEventListener("click", () => {
+        menuItems?.classList.toggle("show");
+      });
+
+      // Optional: hide menu on resize above sm
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 640) {
+          menuItems?.classList.remove("show");
+        }
+      });
+    </script> -->
   </body>
 </html>

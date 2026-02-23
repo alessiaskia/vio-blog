@@ -20,7 +20,6 @@ let themeValue = getPreferTheme();
 
 function setPreference() {
   localStorage.setItem("theme", themeValue);
-  reflectPreference();
 }
 
 function reflectPreference() {
@@ -49,22 +48,37 @@ function reflectPreference() {
 // set early so no page flashes / CSS is made aware
 reflectPreference();
 
+// window.onload = () => {
+//   function setThemeFeature() {
+//     // set on load so screen readers can get the latest value on the button
+//     reflectPreference();
+
+//     // now this script can find and listen for clicks on the control
+//     document.querySelector("#theme-btn")?.addEventListener("click", () => {
+//       themeValue = themeValue === "light" ? "dark" : "light";
+//       setPreference();
+//     });
+//   }
+
+//   setThemeFeature();
+
+//   // Runs on view transitions navigation
+//   document.addEventListener("astro:after-swap", setThemeFeature);
+// };
+
 window.onload = () => {
-  function setThemeFeature() {
-    // set on load so screen readers can get the latest value on the button
-    reflectPreference();
+  const btn = document.querySelector("#theme-btn");
+  const html = document.documentElement;
 
-    // now this script can find and listen for clicks on the control
-    document.querySelector("#theme-btn")?.addEventListener("click", () => {
-      themeValue = themeValue === "light" ? "dark" : "light";
-      setPreference();
-    });
-  }
+  // initial set
+  html.setAttribute("data-theme", getPreferTheme());
 
-  setThemeFeature();
-
-  // Runs on view transitions navigation
-  document.addEventListener("astro:after-swap", setThemeFeature);
+  btn?.addEventListener("click", () => {
+    const newTheme =
+      html.getAttribute("data-theme") === "light" ? "dark" : "light";
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  });
 };
 
 // sync with system changes

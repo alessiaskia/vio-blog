@@ -14,30 +14,140 @@ const { noMarginTop = false } = Astro.props;
 <footer class={`${noMarginTop ? "" : "mt-auto"}`}>
   <Hr noPadding />
   <div class="footer-wrapper">
-    <Socials centered />
+    <div class="icon-bar">
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/viosexo/" aria-label="Instagram">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon-tabler"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="4" y="4" width="16" height="16" rx="4"></rect>
+          <circle cx="12" cy="12" r="3"></circle>
+          <line x1="16.5" y1="7.5" x2="16.5" y2="7.501"></line>
+        </svg>
+      </a>
+      <!-- Facebook -->
+      <a
+        href="https://www.facebook.com/profile.php?id=61583391703120"
+        aria-label="Facebook"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon-tabler"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+          ></path>
+        </svg>
+      </a>
+      <!-- Email -->
+      <a href="mailto:fertinel.vi@gmail.com" aria-label="Email">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon-tabler"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+          <polyline points="3 7 12 13 21 7"></polyline>
+        </svg>
+      </a>
+      <!-- Doctor -->
+      <a
+        href="https://www.doctoranytime.be/d/sexologue/violette-fertinel"
+        aria-label="Doctor Anytime"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon-tabler"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <!-- Magnifying glass circle -->
+          <circle cx="11" cy="11" r="7"></circle>
+          <!-- Handle -->
+          <line x1="16.5" y1="16.5" x2="20" y2="20"></line>
+          <!-- Medical cross -->
+          <line x1="11" y1="8" x2="11" y2="14"></line>
+          <line x1="8" y1="11" x2="14" y2="11"></line>
+        </svg>
+      </a>
+    </div>
     <div class="copyright-wrapper">
-      <span>Alessia Scaccia &#169; {currentYear}</span>
+      <span>A. Scaccia &#169; {currentYear}</span>
     </div>
   </div>
 </footer>
 
 <style>
+  /* ==========================
+   Footer
+   ========================== */
+
   footer {
-    @apply w-full;
+    margin-top: 3rem;
+    padding: 2rem 1rem 1.5rem;
+    background: var(--background);
+    color: var(--foreground);
   }
+
   .footer-wrapper {
-    @apply flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
   }
-  .link-button {
-    @apply my-1 p-2 hover:rotate-6;
-  }
-  .link-button svg {
-    @apply scale-125;
-  }
+
   .copyright-wrapper {
-    @apply my-2 flex flex-col items-center whitespace-nowrap sm:flex-row;
+    font-size: 0.9rem;
+    color: var(--muted);
+    letter-spacing: 0.5px;
   }
-  .separator {
-    @apply hidden sm:inline;
+
+  .icon-bar {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .icon-bar a {
+    display: inline-flex;
+    transition:
+      transform 0.2s,
+      color 0.2s;
+    color: var(--foreground);
+  }
+
+  .icon-bar a:hover {
+    transform: scale(1.2);
+    color: var(--accent);
+  }
+
+  .icon-tabler {
+    width: 32px;
+    height: 32px;
   }
 </style>

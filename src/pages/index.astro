@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "@layouts/Layout.astro";
+import Layout from "../layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import LinkButton from "@components/LinkButton.astro";
@@ -22,47 +22,50 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <Layout>
   <Header />
   <main id="main-content">
-    <section id="about">
-      <h2>Qui suis-je?</h2>
-      <p>Salut ! Moi c'est Vio Fertinel.</p>
-      <p>
-        Après avoir travaillé 10 ans comme assistante sociale, j'ai choisi de me
-        réorienter vers le métier de sexologue, pour lequel j'ai repris une
-        formation de 2 ans à l'Université Libre de Bruxelles. Je suis membre de
-        la SSUB.
-      </p>
-      <p>
-        Mon approche se veut intégrative, c'est-à-dire qu'elle se base sur
-        différents courants en sexologie et que le·a patient·e est partenaire
-        dans la sexothérapie.
-      </p>
-      <p>
-        La consultation est ouverte à toute personne (adolescent·es et adultes)
-        qui s'interroge sur la-sa sexualité, que cela soit en entretien
-        individuel ou de couple(s).
-      </p>
-      <p>
-        Parce que se former de façon continue est une nécessité, voici un
-        echantillon de ce que j'ai ajouté à mes connaissances :
-        <ul>
-          <li>
-            formation sur les Transidentités l'an dernier (je fais partie du
-            réseau)
-          </li>
-          <li>formation EVRAS</li>
-          <li>formation en EFT (en cours)</li>
-          <li>formation sur les relations alternatives (à venir)</li>
-          <li>
-            formation sur les traumas (à venir), formation sur la prise en
-            charge thérapeutique des personnes LGBTQIA+ (à venir).
-          </li>
-        </ul>
-      </p>
-      <img
-        width="500"
-        alt="portrait de la professionnelle"
-        src="src/assets/images/vio-portrait.jpg"
-      />
+    <section class="text-image-section" id="about">
+      <div class="text-content">
+        <h2>Qui suis-je?</h2>
+        <p>Salut ! Moi c'est Vio Fertinel.</p>
+        <p>
+          Après avoir travaillé 10 ans comme assistante sociale, j'ai choisi de
+          me réorienter vers le métier de sexologue, pour lequel j'ai repris une
+          formation de 2 ans à l'Université Libre de Bruxelles. Je suis membre
+          de la SSUB.
+        </p>
+        <p>
+          Mon approche se veut intégrative, c'est-à-dire qu'elle se base sur
+          différents courants en sexologie et que le·a patient·e est partenaire
+          dans la sexothérapie.
+        </p>
+        <p>
+          La consultation est ouverte à toute personne (adolescent·es et
+          adultes) qui s'interroge sur la-sa sexualité, que cela soit en
+          entretien individuel ou de couple(s).
+        </p>
+        <p>
+          Parce que se former de façon continue est une nécessité, voici un
+          echantillon de ce que j'ai ajouté à mes connaissances :
+          <ul>
+            <li>
+              formation sur les Transidentités l'an dernier (je fais partie du
+              réseau)
+            </li>
+            <li>formation EVRAS</li>
+            <li>formation en EFT (en cours)</li>
+            <li>formation sur les relations alternatives (à venir)</li>
+            <li>
+              formation sur les traumas (à venir), formation sur la prise en
+              charge thérapeutique des personnes LGBTQIA+ (à venir).
+            </li>
+          </ul>
+        </p>
+      </div>
+      <div class="image-content">
+        <img
+          src="/assets/vio-portrait.jpg"
+          alt="portrait de la professionnelle"
+        />
+      </div>
     </section>
 
     <Hr />
@@ -95,7 +98,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </ul>
     </section>
 
-    <Hr />
+    <!-- <Hr />
 
     {
       recentPosts.length > 0 && (
@@ -126,46 +129,8 @@ const socialCount = SOCIALS.filter(social => social.active).length;
           ></path>
         </svg>
       </LinkButton>
-    </div>
+    </div> -->
 
     <Footer />
   </main>
-
-  <style>
-    /* ===== Hero Section ===== */
-    #hero {
-      @apply pb-6 pt-8;
-    }
-    #hero h1 {
-      @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
-    }
-    #hero .rss-link {
-      @apply mb-6;
-    }
-    #hero .rss-icon {
-      @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
-    }
-    #hero p {
-      @apply my-2;
-    }
-    .social-wrapper {
-      @apply mt-4 flex flex-col sm:flex-row sm:items-center;
-    }
-    .social-links {
-      @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
-    }
-
-    /* ===== Featured & Recent Posts Sections ===== */
-    #featured,
-    #recent-posts {
-      @apply pb-6 pt-12;
-    }
-    #featured h2,
-    #recent-posts h2 {
-      @apply text-2xl font-semibold tracking-wide;
-    }
-    .all-posts-btn-wrapper {
-      @apply my-8 text-center;
-    }
-  </style>
 </Layout>
