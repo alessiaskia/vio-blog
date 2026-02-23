@@ -69,11 +69,11 @@ const { activeNav } = Astro.props;
               >Contact</a
             >
           </li>
-          <li>
+          <!-- <li>
             <a href="/posts" class={activeNav === "actus" ? "active" : ""}
               >Actualités</a
             >
-          </li>
+          </li> -->
         </ul>
 
         <!-- Theme toggle -->
@@ -246,27 +246,11 @@ const { activeNav } = Astro.props;
   }
 </style>
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuBtn = document.querySelector(".hamburger-menu");
-    const navLinks = document.querySelector(".nav-links");
-    menuBtn?.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-    });
+<script>
+  const themeBtn = document.getElementById("theme-btn");
+  const body = document.body();
 
-    // Theme toggle
-    const themeBtn = document.querySelector("#theme-btn");
-    let themeValue = localStorage.getItem("theme") || "light";
-
-    function reflectTheme() {
-      document.documentElement.setAttribute("data-theme", themeValue);
-      localStorage.setItem("theme", themeValue);
-    }
-    reflectTheme();
-
-    themeBtn?.addEventListener("click", () => {
-      themeValue = themeValue === "light" ? "dark" : "light";
-      reflectTheme();
-    });
+  themeBtn?.addEventListener("click", () => {
+    body.classList.toggle("dark");
   });
 </script>

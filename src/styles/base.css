@@ -43,6 +43,7 @@ body {
   background-position: center;
   /* blend with background color for theme adaptability */
   background-blend-mode: multiply;
+  filter: brightness(1.1) contrast(1.05) saturate(1.2) hue-rotate(-10deg);
 }
 
 body::before {
@@ -94,11 +95,6 @@ td {
 h1, h2, h3, h4, h5, h6 {
   color: var(--foreground);
   font-family: "Playfair Display", serif;
-}
-
-h1, h2, h3 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
 }
 
 h1 { font-size: 2.5rem; }
@@ -167,6 +163,8 @@ button:hover,
     height: auto;
     border-radius: 0.5rem;
     display: inline-block;
+    margin: 0;
+    align-self: flex-start;
   }
   
   /* Mobile: stack vertically */
@@ -179,7 +177,7 @@ button:hover,
     .text-image-section .image-content {
       text-align: center;
       flex: 1 1 100%;
-      order: -1; /* image above text */
+      order: 0;
     }
   }
 
