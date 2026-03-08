@@ -210,9 +210,18 @@ button:hover,
   }
 
   .text-image-section .image-content {
-    text-align: center;
-    flex: 1 1 100%;
+    flex: 0 0 auto;     /* allow natural width */
+    text-align: center; /* center the image */
     order: 0;
+    width: 100%;        /* ensures centering works */
+  }
+
+  .text-image-section .image-content img {
+    max-width: 180px;   /* adjust size as needed */
+    width: 100%;
+    height: auto;
+    margin: 0 auto;     /* centers the image element */
+    display: block;     /* required for margin auto centering */
   }
 }
 
