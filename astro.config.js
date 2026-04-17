@@ -3,7 +3,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
-import { SITE } from "./src/config";
+import { SITE } from "./src/config.js";
 import { fileURLToPath } from "node:url";
 
 export default defineConfig({
@@ -30,21 +30,33 @@ export default defineConfig({
       alias: {
         "@layouts": fileURLToPath(new URL("./src/layouts", import.meta.url)),
         "@styles": fileURLToPath(new URL("./src/styles", import.meta.url)),
-        "@components": fileURLToPath(
-          new URL("./src/components", import.meta.url)
-        ),
+        "@components": fileURLToPath(new URL("./src/components", import.meta.url)),
         "@assets": fileURLToPath(new URL("./src/assets", import.meta.url)),
         "@utils": fileURLToPath(new URL("./src/utils", import.meta.url)),
         "@content": fileURLToPath(new URL("./src/content", import.meta.url)),
         "@pages": fileURLToPath(new URL("./src/pages", import.meta.url)),
-        "@config": fileURLToPath(new URL("./src/config.ts", import.meta.url)),
+        "@config": fileURLToPath(new URL("./src/config.js", import.meta.url)),
       },
     },
     optimizeDeps: {
-      exclude: ["@resvg/resvg-js", "@resvg/resvg-js-win32-x64-msvc"],
+      exclude: [
+        "@resvg/resvg-js",
+        "@resvg/resvg-js-win32-x64-msvc"
+      ],
     },
     ssr: {
-      noExternal: ["@resvg/resvg-js"],
+      noExternal: [
+        "@resvg/resvg-js",
+        "@resvg/resvg-js-win32-x64-msvc"
+      ],
+    },
+    build: {
+      rollupOptions: {
+        external: [
+          "@resvg/resvg-js",
+          "@resvg/resvg-js-win32-x64-msvc"
+        ],
+      },
     },
   },
 });
