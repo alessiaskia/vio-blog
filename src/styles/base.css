@@ -43,7 +43,7 @@ body {
   /* watercolor texture overlay */
   /* background-image: url('  '); */
   background-image: url('/../../public/assets/watercolor-2.avif');
-  background-image: url('/../../public/assets/watercolor-1.avif');
+  /* background-image: url('/../../public/assets/watercolor-1.avif'); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
